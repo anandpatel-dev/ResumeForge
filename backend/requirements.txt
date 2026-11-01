@@ -36,3 +36,4 @@ pyttsx3
 SpeechRecognition
 openai-whisper
 gunicorn
+psycopg2-binary
