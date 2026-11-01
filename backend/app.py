@@ -35,15 +35,17 @@ from flask_jwt_extended import ( create_access_token, jwt_required, get_jwt_iden
 load_dotenv()
 
 # Ensure NLTK resources
-try:
-    nltk.data.find("corpora/stopwords")
-except LookupError:
-    nltk.download("stopwords", quiet=True)
+NLTK_RESOURCES = {
+    "corpora/stopwords": "stopwords",
+    "tokenizers/punkt": "punkt",
+    "corpora/wordnet": "wordnet",
+}
 
-try:
-    nltk.data.find("tokenizers/punkt")
-except LookupError:
-    nltk.download("punkt", quiet=True)
+for resource_path, package_name in NLTK_RESOURCES.items():
+    try:
+        nltk.data.find(resource_path)
+    except LookupError:
+        nltk.download(package_name, quiet=True)
 
 STOPWORDS = set(stopwords.words("english"))
 lemmatizer = WordNetLemmatizer()

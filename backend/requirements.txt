@@ -1,3 +1,4 @@
+
 # ---- Flask Core ----
 Flask==2.3.3
 Flask-Cors==3.0.10
@@ -13,11 +14,17 @@ bcrypt==4.0.1
 python-dotenv==1.0.0
 
 # ---- Resume Rendering ----
-reportlab==4.0.4         # PDF export support
-WeasyPrint==60.2         # Alternative for HTML to PDF (optional)
+reportlab==4.0.4
+WeasyPrint==60.2
 
 # ---- File Handling ----
 Werkzeug==2.3.7
+PyMuPDF
+python-docx
+
+# ---- NLP / Resume Screening ----
+nltk
+scikit-learn
 
 # ---- AI / OpenAI ----
 openai>=1.30.0,<2.0
@@ -28,3 +35,4 @@ gTTS
 pyttsx3
 SpeechRecognition
 openai-whisper
+gunicorn
