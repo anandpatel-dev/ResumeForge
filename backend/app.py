@@ -81,8 +81,7 @@ class User(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password_hash = db.Column(db.String(256), nullable=False)
 
-with app.app_context():
-    db.create_all()
+
 
 # ================= Helpers =================
 def allowed_file(filename: str) -> bool:
@@ -480,8 +479,7 @@ class Result(db.Model):
     payload = db.Column(db.JSON)  # store the full result JSON
     meta = db.Column(db.JSON, nullable=True)
 
-with app.app_context():
-    db.create_all()
+
 
 @app.route("/api/results", methods=["POST"])
 def save_result():
@@ -756,11 +754,17 @@ app.register_blueprint(resume_bp, url_prefix="/api/resume")
 app.register_blueprint(ai_bp, url_prefix="/api/ai")
 
 
+# ================= Database Initialization =================
+
+def initialize_database():
+    with app.app_context():
+        db.create_all()
+
+
 # ================= Run Backend =================
 
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
+    initialize_database()
 
     app.run(
         host="0.0.0.0",
