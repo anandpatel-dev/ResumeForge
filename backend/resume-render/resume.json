@@ -1,0 +1,54 @@
+{
+  "basics": {
+    "name": "Anand Kumar",
+    "label": "Full Stack Developer",
+    "email": "anand@example.com",
+    "phone": "+91 98765 43210",
+    "summary": "Passionate developer with 3+ years of experience in web and AI projects.",
+    "location": {
+      "city": "New Delhi",
+      "countryCode": "IN"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "anand",
+        "url": "https://linkedin.com/in/anand"
+      },
+      {
+        "network": "GitHub",
+        "username": "anand",
+        "url": "https://github.com/anand"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "TechForge",
+      "position": "Software Engineer",
+      "startDate": "2022-01-01",
+      "endDate": "2024-06-01",
+      "summary": "Worked on ResumeForge and AI-powered career tools."
+    }
+  ],
+  "education": [
+    {
+      "institution": "ABC University",
+      "area": "Computer Science and Design",
+      "studyType": "B.Tech",
+      "startDate": "2021-08-01",
+      "endDate": "2025-06-01"
+    }
+  ],
+  "skills": [
+    { "name": "Python", "level": "Advanced" },
+    { "name": "React", "level": "Intermediate" },
+    { "name": "SQL", "level": "Intermediate" }
+  ],
+  "projects": [
+    {
+      "name": "ResumeForge",
+      "description": "AI-powered resume builder & ATS checker."
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      padding: 0;
+      color: #333;
+      font-size: 14px;
+    }
+    h1, h2, h3 {
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      font-size: 24px;
+      color: #2c3e50;
+    }
+    h2 {
+      font-size: 18px;
+      border-bottom: 1px solid #ddd;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      color: #444;
+    }
+    .section {
+      margin-bottom: 15px;
+    }
+    .contact {
+      font-size: 12px;
+      color: #555;
+    }
+    ul {
+      margin: 5px 0 0 20px;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 4px;
+    }
+    .job-role {
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .company {
+      font-style: italic;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <!-- Personal Info -->
+  <div>
+    <h1>{{ data.personal.name }}</h1>
+    <div class="contact">
+      {{ data.personal.email }} | {{ data.personal.phone }} <br>
+      {{ data.personal.address }}
+    </div>
+  </div>
+
+  <!-- Education -->
+  <div class="section">
+    <h2>Education</h2>
+    <ul>
+      {% for edu in data.education %}
+      <li>
+        {{ edu.degree }} - {{ edu.school }} ({{ edu.year }})
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Experience -->
+  <div class="section">
+    <h2>Experience</h2>
+    <ul>
+      {% for exp in data.experience %}
+      <li>
+        <span class="job-role">{{ exp.role }}</span> - 
+        <span class="company">{{ exp.company }}</span> ({{ exp.duration }}) <br>
+        {{ exp.details }}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Skills -->
+  <div class="section">
+    <h2>Skills</h2>
+    <p>{{ data.skills | joincomma }}</p>
+  </div>
+</body>
+</html>

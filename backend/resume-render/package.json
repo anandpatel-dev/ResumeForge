@@ -1,0 +1,32 @@
+{
+  "name": "resume-render",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jsonresume-theme-actual": "^0.2.2",
+    "jsonresume-theme-boilerplate": "^0.1.2",
+    "jsonresume-theme-caffeine": "^1.2.3",
+    "jsonresume-theme-classy": "^1.0.9",
+    "jsonresume-theme-compact": "^1.0.4",
+    "jsonresume-theme-elegant": "^1.16.1",
+    "jsonresume-theme-eloquent": "^5.0.0",
+    "jsonresume-theme-even": "^0.23.0",
+    "jsonresume-theme-kendall": "^0.2.0",
+    "jsonresume-theme-macchiato": "^1.1.0",
+    "jsonresume-theme-modern": "^0.0.18",
+    "jsonresume-theme-onepage": "^0.0.3",
+    "jsonresume-theme-paper": "^0.5.0",
+    "jsonresume-theme-short": "^0.1.7",
+    "jsonresume-theme-slick": "^0.1.16",
+    "jsonresume-theme-spartan": "^0.3.0",
+    "jsonresume-theme-stackoverflow": "^2.1.0",
+    "resume-cli": "^3.0.8"
+  }
+}

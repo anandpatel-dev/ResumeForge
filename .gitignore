@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+instance/
+
+# Uploaded files and generated resumes
+backend/uploads/*
+backend/resumes/*
+
+# Node.js
+node_modules/
+frontend/node_modules/
+frontend/dist/
+npm-debug.log*
+
+# IDE and system
+.vscode/
+.DS_Store
+.pytest_cache/
+.coverage
+# Generated resume output
+backend/resume-render/out/
