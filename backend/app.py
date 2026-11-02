@@ -761,11 +761,13 @@ def initialize_database():
         db.create_all()
 
 
+# Initialize database when the application starts
+initialize_database()
+
+
 # ================= Run Backend =================
 
 if __name__ == "__main__":
-    initialize_database()
-
     app.run(
         host="0.0.0.0",
         port=int(os.getenv("PORT", 5000)),
