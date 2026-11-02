@@ -1,7 +1,15 @@
-// src/layouts/DashboardLayout.jsx
+
 import React, { useState } from "react";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
-import { BellIcon, HomeIcon, InboxIcon, QuestionMarkCircleIcon, Cog6ToothIcon, ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
+import {
+  BellIcon,
+  HomeIcon,
+  InboxIcon,
+  QuestionMarkCircleIcon,
+  Cog6ToothIcon,
+  ArrowRightOnRectangleIcon,
+  ArrowLeftIcon,
+} from "@heroicons/react/24/outline";
 import { useAuth } from "../context/AuthContext";
 
 export default function DashboardLayout() {
@@ -9,6 +17,8 @@ export default function DashboardLayout() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  const isDashboardHome = location.pathname === "/dashboard";
 
   const nav = [
     { name: "Home", to: "/dashboard", icon: <HomeIcon className="w-5 h-5" /> },
@@ -36,8 +46,11 @@ export default function DashboardLayout() {
             <NavLink
               key={n.name}
               to={n.to}
+              end={n.to === "/dashboard"}
               className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2 rounded-lg group transition ${isActive ? "bg-indigo-600 text-white" : "text-gray-700 hover:bg-indigo-50"}`
+                `flex items-center gap-3 px-3 py-2 rounded-lg group transition ${
+                  isActive ? "bg-indigo-600 text-white" : "text-gray-700 hover:bg-indigo-50"
+                }`
               }
             >
               <span className="text-indigo-500 group-hover:text-indigo-700">{n.icon}</span>
@@ -67,8 +80,10 @@ export default function DashboardLayout() {
         {/* Topbar */}
         <header className="flex items-center justify-between bg-white border-b border-gray-200 px-4 py-3">
           <div className="flex items-center gap-4">
-            <button className="md:hidden p-2 rounded-md" onClick={() => { /* mobile open if implemented */ }}>
-              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
+            <button className="md:hidden p-2 rounded-md">
+              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
+                <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
             </button>
             <div className="text-lg font-semibold text-gray-800">Dashboard</div>
           </div>
@@ -82,12 +97,14 @@ export default function DashboardLayout() {
                 className="w-9 h-9 rounded-full cursor-pointer ring-2 ring-white shadow"
                 onClick={() => setDropdownOpen((s) => !s)}
               />
+
               {dropdownOpen && (
                 <div className="absolute right-0 mt-2 w-56 bg-white border rounded-md shadow-lg z-50">
                   <div className="px-4 py-3 border-b">
                     <div className="font-semibold text-gray-800">{user?.name || "User Name"}</div>
                     <div className="text-xs text-gray-500">{user?.email || "you@example.com"}</div>
                   </div>
+
                   <button
                     onClick={() => {
                       setDropdownOpen(false);
@@ -97,6 +114,7 @@ export default function DashboardLayout() {
                   >
                     My Profile
                   </button>
+
                   <button
                     onClick={() => {
                       setDropdownOpen(false);
@@ -106,7 +124,9 @@ export default function DashboardLayout() {
                   >
                     Settings
                   </button>
+
                   <div className="border-t mt-1" />
+
                   <button
                     onClick={() => {
                       logout();
@@ -124,6 +144,16 @@ export default function DashboardLayout() {
 
         {/* Main area */}
         <main className="p-6">
+          {!isDashboardHome && (
+            <button
+              onClick={() => navigate("/dashboard")}
+              className="mb-5 inline-flex items-center gap-2 rounded-lg border border-indigo-200 bg-white px-4 py-2 text-sm font-medium text-indigo-700 shadow-sm transition hover:bg-indigo-50 hover:shadow"
+            >
+              <ArrowLeftIcon className="h-4 w-4" />
+              Back to Dashboard
+            </button>
+          )}
+
           <Outlet />
         </main>
       </div>
